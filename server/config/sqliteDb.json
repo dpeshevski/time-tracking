@@ -1,0 +1,17 @@
+{
+  "dev": {
+    "database": "time-tracking",
+    "username": "admin123",
+    "password": "admin123",
+    "dialect": "sqlite",
+    "storage": "src/database/storage/database.sqlite",
+    "define": {}
+  },
+  "test": {
+    "database": "time-tracking",
+    "username": "admin123",
+    "password": "admin123",
+    "dialect": "sqlite",
+    "storage": "memory"
+  }
+}
