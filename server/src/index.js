@@ -4,6 +4,8 @@ import logger from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 
+import handleErrors from './middlewares/handleErrors';
+
 import ApiConfig from './constants/api';
 import indexRouter from './router/index';
 
@@ -18,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(indexRouter);
+
+app.use(handleErrors);
 
 app.listen(PORT, () => {
   console.log(`API is running on ${PORT} port`);

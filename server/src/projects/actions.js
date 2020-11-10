@@ -1,3 +1,5 @@
+import hat from 'hat';
+
 import models from '../models/index';
 
 import Get from '../service/get.js';
@@ -35,7 +37,8 @@ async function create(req, res, next) {
       description: string
     } = req.body;
 
-    await Post(req.body, res, projects);
+    const createData = Object.assign({}, req.body, { id: hat() });
+    await Post(createData, res, projects);
   } catch (e) {
     next(e);
   }

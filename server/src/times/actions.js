@@ -1,3 +1,5 @@
+import hat from 'hat';
+
 import Get from '../service/get';
 import Post from '../service/post';
 import Delete from '../service/delete';
@@ -7,7 +9,7 @@ import models from '../models/index';
 const { times, projects } = models;
 
 async function list(req, res, next) {
-  await Get(null, res, times, projects, 'associatedMethod');;
+  await Get(null, res, times, projects, 'associatedMethod');
   await next;
 }
 
@@ -24,7 +26,7 @@ async function create(req, res, next) {
 
     const { projectId }: { projectId: string } = req.params;
 
-    await Post(Object.assign({}, req.body, { projectId }), res, times);
+    await Post(Object.assign({}, req.body, { id: hat(), projectId }), res, times);
   } catch (e) {
     next(e);
   }
